@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Auction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function updateSubCategory() {
+            const category = document.getElementById('category').value;
+            const subCategorySelect = document.getElementById('sub-category');
+
+            // Clear current sub-category options
+            subCategorySelect.innerHTML = '<option value="">Select a sub-category</option>'; // Reset to default option
+
+            let options = [];
+
+            // Define sub-categories based on the selected category
+            if (category === 'electronics') {
+                options = ['Mobile Phones', 'Laptops', 'Cameras'];
+            } else if (category === 'furniture') {
+                options = ['Sofas', 'Tables', 'Chairs'];
+            } else if (category === 'art') {
+                options = ['Paintings', 'Sculptures', 'Prints'];
+            }
+
+            // Add new sub-category options
+            options.forEach(option => {
+                const optElement = document.createElement('option');
+                optElement.value = option.toLowerCase().replace(/\s+/g, '-');
+                optElement.textContent = option;
+                subCategorySelect.appendChild(optElement);
+            });
+        }
+    </script>
+</head>
+
+<body class="bg-yellow-900 font-sans">
+<div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md mt-8">
+    <h1 class="text-4xl font-bold text-yellow-600 mb-6 text-center">Create Auction</h1>
+    <form>
+        <!-- Item Name -->
+        <div class="mb-4">
+            <label for="item-name" class="block text-sm font-medium text-gray-700">Item Name</label>
+            <input type="text" id="item-name" placeholder="Enter item name" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-4">
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea id="description" placeholder="Enter item description" rows="4" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+        </div>
+
+        <!-- Category -->
+        <div class="mb-4">
+            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+            <select id="category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" onchange="updateSubCategory()">
+                <option value="">Select a category</option>
+                <option value="electronics">Electronics</option>
+                <option value="furniture">Furniture</option>
+                <option value="art">Art</option>
+                <option value="accessories">Accessories</option>
+            </select>
+        </div>
+
+        <!-- Sub-category -->
+        <div class="mb-4">
+            <label for="sub-category" class="block text-sm font-medium text-gray-700">Sub-category</label>
+            <select id="sub-category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                <option value="">Select a sub-category</option>
+            </select>
+        </div>
+
+        <!-- Starting Price -->
+        <div class="mb-4">
+            <label for="starting-price" class="block text-sm font-medium text-gray-700">Starting Price</label>
+            <input type="number" id="starting-price" placeholder="Enter starting price" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Bid Increment -->
+        <div class="mb-4">
+            <label for="bid-increment" class="block text-sm font-medium text-gray-700">Bid Increment</label>
+            <input type="number" id="bid-increment" placeholder="Enter bid increment amount" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Auction Dates -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            <div>
+                <label for="start-date" class="block text-sm font-medium text-gray-700">Start Date & Time</label>
+                <input type="datetime-local" id="start-date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="end-date" class="block text-sm font-medium text-gray-700">End Date & Time</label>
+                <input type="datetime-local" id="end-date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+        </div>
+
+        <!-- Upload Photos -->
+        <div class="mb-4">
+            <label for="photos" class="block text-sm font-medium text-gray-700">Upload Photos</label>
+            <input type="file" id="photos" multiple class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="mb-4">
+            <label class="inline-flex items-center">
+                <input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" required>
+                <span class="ml-2 text-sm text-gray-700">I agree to the <a href="#" class="text-blue-500 hover:underline">terms and conditions</a>.</span>
+            </label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="px-6 py-2 text-white text-lg bg-yellow-600 rounded-md hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-900">Create Auction</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
