@@ -14,7 +14,7 @@
 
 
 <!-- Navbar -->
-<nav class="top-0 left-0 right-0 z-50">
+<nav class="top-0 left-0 right-0 z-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <!-- Logo or Brand Name -->
@@ -29,19 +29,18 @@
                 <a href="index.html" class="text-white hover:text-yellow-700 px-3 py-2 rounded-md text-lg font-medium">Home</a>
                 <a href="about.html" class="text-white hover:text-yellow-700 px-3 py-2 rounded-md text-lg font-medium">About</a>
 
-                <!-- Services Dropdown -->
-                <div class="relative group">
+
+                <div class="relative group z-50">
                     <button class="text-white hover:text-yellow-700 px-3 py-2 rounded-md text-lg font-medium">
                         Services
                     </button>
                     <!-- Dropdown Menu -->
-                    <div class="absolute left-0 hidden mt-2 w-48 bg-white text-black rounded-md shadow-lg group-hover:block">
-                        <a href="live_auctions.html" class="block px-4 py-2 text-lg">Start Bidding</a>
-                        <a href="create_auction.html" class="block px-4 py-2 text-lg">Create Auction</a>
+                    <div class="absolute left-0 hidden mt-2 w-48 bg-white text-black rounded-md shadow-lg group-hover:block z-30">
+                        <a href="live_auctions.html" class="block px-4 py-2 text-lg hover:bg-yellow-100">Start Bidding</a>
+                        <a href="create_auction.html" class="block px-4 py-2 text-lg hover:bg-yellow-100">Create Auction</a>
                     </div>
                 </div>
 
-                <a href="support.html" class="text-white hover:text-yellow-700 px-3 py-2 rounded-md text-lg font-medium">Support</a>
                 <a href="login.html" class="ml-4 bg-yellow-600 text-white px-5 py-2 rounded-md text-base font-medium hover:bg-yellow-500">Login</a>
             </div>
         </div>
@@ -197,6 +196,13 @@
         </div>
     </div>
 </footer>
+
+<script>
+    function toggleDropdown() {
+        const menu = document.getElementById('dropdownMenu');
+        menu.classList.toggle('hidden');
+    }
+</script>
 
 
 
